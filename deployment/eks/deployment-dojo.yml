@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dojo
+  labels:
+    app: clean-architecture
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dojo
+  template:
+    metadata:
+      labels:
+        app: dojo
+    spec:
+      containers:
+        - name: dojo
+          image: dojo:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
